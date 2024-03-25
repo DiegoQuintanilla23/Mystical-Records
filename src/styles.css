@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styles.css */
+.btn-custom {
+    /* Utilidades de Tailwind CSS */
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+
+    /* Reglas CSS personalizadas */
+    border: 2px solid #0656f0;
+    /* Ejemplo de una regla CSS personalizada */
+}
+
+.btn-custom:hover {
+    /* Estilos cuando el cursor pasa sobre el botón */
+    @apply bg-blue-700;
+}
