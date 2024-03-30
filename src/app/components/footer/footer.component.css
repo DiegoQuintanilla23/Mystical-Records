@@ -1,4 +1,4 @@
 .footercomp
 {
-    background: var(--color4);
+    background: linear-gradient(180deg, var(--color5) 5%, var(--color4) 22%);
 }
