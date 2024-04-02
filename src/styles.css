@@ -87,6 +87,12 @@ body {
     transform: scale(0.97);
 }
 
+label{
+    @apply block mb-2 text-sm font-medium text-white;
+}
+input{
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white;
+}
 section
 {
     @apply m-10 p-10 h-full rounded bg-purple-500 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 backdrop-saturate-100 backdrop-contrast-100;
