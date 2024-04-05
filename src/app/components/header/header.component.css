@@ -1,4 +1,4 @@
 .headercomp
 {
-    background: linear-gradient(0deg, var(--color3) 5%, var(--color4) 22%);
+    background: linear-gradient(0deg, var(--color5) 5%, var(--color4) 33%,  var(--color4) 66%, var(--color5) 95%);
 }
