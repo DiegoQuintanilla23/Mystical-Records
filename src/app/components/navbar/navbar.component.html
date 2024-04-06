@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar" *ngIf="!Route.startsWith('/dashboard')">
     <button class="navbarButton" type="button" routerLink="./albums">Agregados Recientemente</button>
     <button class="navbarButton" type="button" routerLink="./albums">Catalogo Completo</button>
     <button class="navbarButton" type="button" routerLink="./albums">En Oferta</button>
@@ -8,5 +8,19 @@
     <button class="navbarButton" type="button" routerLink="./tags">Géneros</button>
     <button class="navbarButton" type="button" routerLink="./tags">Formatos</button>
     <button class="navbarButton" type="button" routerLink="./tags">Artistas</button>
+</nav>
+<nav class="navbar" *ngIf="Route.startsWith('/dashboard/user')">
+    <button class="navbarButton" type="button">Mi Perfil</button>
+    <button class="navbarButton" type="button">Mis Pedidos</button>
+    <button class="navbarButton" type="button">Mis Comentarios</button>
+    <button class="navbarButton" type="button">Wishlist</button>
+    <button class="navbarButton" type="button">Mi Carrito</button>
+</nav>
+<nav class="navbar" *ngIf="Route.startsWith('/dashboard/admin')">
+    <button class="navbarButton" type="button">Agregar Productos</button>
+    <button class="navbarButton" type="button">Ver Productos</button>
+    <button class="navbarButton" type="button">Ver Pedidos</button>
+    <button class="navbarButton" type="button">Clasificaciones</button>
+    <button class="navbarButton" type="button">Newsletter</button>
 </nav>
 

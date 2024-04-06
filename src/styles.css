@@ -74,7 +74,7 @@ body {
     @apply justify-center flex flex-wrap m-4;
 }
 .navbarButton{
-    @apply rounded-2xl text-sm flex-shrink-0 flex-grow flex-initial border-black max-w-none h-10 text-black font-normal py-2 px-4;
+    @apply rounded-2xl mr-1 text-sm flex-shrink-0 flex-grow flex-initial border-black max-w-none h-10 text-black font-normal py-2 px-4;
     background: linear-gradient(0deg, var(--color2) 0%, var(--color4) 28%, var(--color5) 28%, var(--color6) 99%);
 }
 .navbarButton:hover{
