@@ -1,26 +1,26 @@
 <nav class="navbar" *ngIf="!Route.startsWith('/dashboard')">
-    <button class="navbarButton" type="button" routerLink="./albums">Agregados Recientemente</button>
-    <button class="navbarButton" type="button" routerLink="./albums">Catalogo Completo</button>
-    <button class="navbarButton" type="button" routerLink="./albums">En Oferta</button>
-    <button class="navbarButton" type="button" routerLink="./albums">Ediciones Limitadas</button>
-    <button class="navbarButton" type="button" routerLink="./albums">Compilaciones</button>
-    <button class="navbarButton" type="button" routerLink="./albums">Soundtracks</button>
-    <button class="navbarButton" type="button" routerLink="./tags">Géneros</button>
-    <button class="navbarButton" type="button" routerLink="./tags">Formatos</button>
-    <button class="navbarButton" type="button" routerLink="./tags">Artistas</button>
+    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Agregados Recientemente</button>
+    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Catalogo Completo</button>
+    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">En Oferta</button>
+    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Ediciones Limitadas</button>
+    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Compilaciones</button>
+    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Soundtracks</button>
+    <button class="navbarButton" type="button" routerLink="/tags" routerLinkActive="active">Géneros</button>
+    <button class="navbarButton" type="button" routerLink="/tags" routerLinkActive="active">Formatos</button>
+    <button class="navbarButton" type="button" routerLink="/tags" routerLinkActive="active">Artistas</button>
 </nav>
 <nav class="navbar" *ngIf="Route.startsWith('/dashboard/user')">
-    <button class="navbarButton" type="button">Mi Perfil</button>
-    <button class="navbarButton" type="button">Mis Pedidos</button>
-    <button class="navbarButton" type="button">Mis Comentarios</button>
-    <button class="navbarButton" type="button">Wishlist</button>
-    <button class="navbarButton" type="button">Mi Carrito</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/user/profile" routerLinkActive="active">Mi Perfil</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/user/orders" routerLinkActive="active">Mis Pedidos</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/user/comments" routerLinkActive="active">Mis Comentarios</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/user/wishlist" routerLinkActive="active">Wishlist</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/user/shopping-cart" routerLinkActive="active">Mi Carrito</button>
 </nav>
 <nav class="navbar" *ngIf="Route.startsWith('/dashboard/admin')">
-    <button class="navbarButton" type="button">Agregar Productos</button>
-    <button class="navbarButton" type="button">Ver Productos</button>
-    <button class="navbarButton" type="button">Ver Pedidos</button>
-    <button class="navbarButton" type="button">Clasificaciones</button>
-    <button class="navbarButton" type="button">Newsletter</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/admin/add-product" routerLinkActive="active">Agregar Productos</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/admin/view-products" routerLinkActive="active">Ver Productos</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/admin/view-orders" routerLinkActive="active">Ver Pedidos</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/admin/view-class" routerLinkActive="active">Clasificaciones</button>
+    <button class="navbarButton" type="button" routerLink="/dashboard/admin/Newsletter" routerLinkActive="active">Newsletter</button>
 </nav>
 

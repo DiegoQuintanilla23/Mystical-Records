@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NewsletterComponent } from '../../components/newsletter/newsletter.component';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { CommentsSectionComponent } from '../../components/comments-section/comments-section.component';
@@ -11,6 +11,8 @@ import { SpotifyIframeComponent } from '../../components/spotify-iframe/spotify-
   templateUrl: './album-view.page.html',
   styleUrl: './album-view.page.css'
 })
-export class AlbumViewPage {
-
+export class AlbumViewPage implements OnInit {
+  ngOnInit(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

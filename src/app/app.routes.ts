@@ -5,6 +5,11 @@ import { ContentPage } from './pages/content/content.page';
 import { RegisterPage } from './pages/register/register.page';
 import { LoginPage } from './pages/login/login.page';
 import { DashboardPage } from './pages/dashboard/dashboard.page';
+import { ProfilePage } from './pages/user/profile/profile.page';
+import { OrdersPage } from './pages/user/orders/orders.page';
+import { CommentsPage } from './pages/user/comments/comments.page';
+import { WishlistPage } from './pages/user/wishlist/wishlist.page';
+import { ShoppingCartPage } from './pages/user/shopping-cart/shopping-cart.page';
 
 export const routes: Routes = [
     {path: "home", component: HomePage },
@@ -15,7 +20,12 @@ export const routes: Routes = [
     {path: "login", component: LoginPage},
     {path: "dashboard/user", component: DashboardPage,
         children: [
-
+            {path: '', redirectTo:'profile', pathMatch:'full'},
+            {path: "profile", component: ProfilePage},
+            {path: "orders", component: OrdersPage},
+            {path: "comments", component: CommentsPage},
+            {path: "wishlist", component: WishlistPage},
+            {path: "shopping-cart", component: ShoppingCartPage},
         ]
     },
     {path: "dashboard/admin", component: DashboardPage,
