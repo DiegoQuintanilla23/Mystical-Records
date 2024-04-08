@@ -48,7 +48,7 @@ body {
 .button:active
 {
     @apply text-black;
-    background: var(--focused);
+    background: linear-gradient(0deg, #f8fadf 5%, var(--focused) 33%, var(--focused) 63%, #f8fadf 95%);
     transform: scale(0.97);
 }
 
@@ -83,7 +83,7 @@ body {
     border-style:groove;
 }
 .navbarButton:active{
-    background: var(--focused);
+    background: linear-gradient(0deg, #f8fadf 5%, var(--focused) 33%, var(--focused) 63%, #f8fadf 95%);
     transform: scale(0.97);
 }
 
