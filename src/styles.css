@@ -3,18 +3,20 @@
 @tailwind utilities;
 
 :root {
-    --color1: #732571 ;
-    --color2: #965395 ;
-    --color3: #b980b8 ;
-    --color4: #dcaedc ;
-    --color5: #ffdcff ;
-    --color6: #fdf0fd ;
+    --color1: #732571;
+    --color2: #965395;
+    --color3: #b980b8;
+    --color4: #dcaedc;
+    --color5: #ffdcff;
+    --color6: #fdf0fd;
     --color7:#48A798;
     --color8:#49C1AE;
     --color9:#52D6C1;
     --color10:#5EEAD4;
     --color11:#86E2D4;
     --color12:#ABE2DA;
+    --bgcolor1:#ffffff;
+    --bgcolor2:#e7e7e7;
     --btnPrimary: #F0F3F4;
     --btnShadow: #d1a6e2;
     --btnHover: #a881b7;
@@ -30,7 +32,6 @@
     }
 }
 body {
-    background-image: url('assets/back.png');
     background-size:auto;
     animation: scroll 10s linear infinite;
     background-color: #48A798;
@@ -39,11 +40,11 @@ body {
 
 .button {
     @apply text-black border-black border-4 font-bold py-2 px-5 rounded-lg shadow-lg;
-    background-image: linear-gradient(180deg, var(--btnPrimary) 0%, var(--btnShadow) 22%);
+    background-image: linear-gradient(0deg, var(--bgcolor2) 0%, var(--bgcolor1) 22%);
 }
 .button:hover {
     @apply text-white;
-    background-image: linear-gradient(180deg, var(--btnPrimary) 0%, var(--btnHover) 22%);
+    background: black;
 }
 .button:active
 {
@@ -57,11 +58,11 @@ body {
     width: 60px;
     height: 60px;
     font-size: large;
-    background: radial-gradient(circle, var(--btnPrimary) 40%, var(--btnShadow) 100%);
+    background: radial-gradient(circle, var(--bgcolor1) 40%, var(--bgcolor2) 100%);
 }
 .icon-button:hover {
     @apply text-white;
-    background: radial-gradient(circle, var(--btnHover) 40%, var(--btnPrimary) 100%);
+    background: black;
 }
 .icon-button:active
 {
@@ -71,11 +72,12 @@ body {
 }
 
 .navbar{
-    @apply justify-center flex flex-wrap m-4;
+    @apply justify-center flex flex-wrap p-4;
+    background-color: var(--bgcolor2);
 }
 .navbarButton{
-    @apply rounded-2xl mr-1 text-sm flex-shrink-0 flex-grow flex-initial border-black max-w-none h-10 text-black font-normal py-2 px-4;
-    background: linear-gradient(0deg, var(--color2) 0%, var(--color4) 28%, var(--color5) 28%, var(--color6) 99%);
+    @apply rounded-2xl mr-px text-sm flex-shrink-0 flex-grow flex-initial border-black max-w-none h-10 text-black font-normal py-2 px-4;
+    background: transparent;
 }
 .navbarButton:hover{
     background: linear-gradient(0deg, var(--color7) 0%, var(--color8) 28%, var(--color11) 28%, var(--color12) 99%);
@@ -85,11 +87,13 @@ body {
 .navbarButton:active{
     background: linear-gradient(0deg, #f8fadf 5%, var(--focused) 33%, var(--focused) 63%, #f8fadf 95%);
     transform: scale(0.97);
+    border: black;
+    border-style:groove;
 }
 
 .card {
     @apply border-2 border-black rounded-lg max-w-sm block overflow-hidden shadow-lg transition duration-300 ease-in-out;
-    background: linear-gradient(0deg, var(--color5) 5%, var(--color4) 33%,  var(--color4) 66%, var(--color5) 95%);
+    background: linear-gradient(0deg, var(--bgcolor2) 5%, var(--bgcolor1) 33%,  var(--bgcolor1) 66%, var(--bgcolor2) 95%);
 }
 .card:hover {
     transform: translateY(-20px);

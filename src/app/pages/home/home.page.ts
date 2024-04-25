@@ -11,5 +11,24 @@ import { NewsletterComponent } from '../../components/newsletter/newsletter.comp
   styleUrl: './home.page.css'
 })
 export class HomePage {
-
+  public slides: any[] = [
+    {
+      url: "assets/slider/s1.jpg",
+      atr: "https://www.freepik.es/foto-gratis/vista-lateral-tiro-medio-hombre-joven-que-busca-vinilos-tienda_5075567.htm#fromView=search&page=1&position=1&uuid=9a836a97-7b05-4aa2-9ad2-1aba23aab4c2",
+      title: "first",
+      description: "LOREM IPSUM"
+    },
+    {
+      url: "assets/slider/s2.jpg",
+      atr: "https://www.freepik.es/foto-gratis/vista-lateral-tiro-medio-hombre-joven-que-busca-vinilos-tienda_5075567.htm#fromView=search&page=1&position=1&uuid=9a836a97-7b05-4aa2-9ad2-1aba23aab4c2",
+      title: "first",
+      description: "LOREM IPSUM"
+    },
+    {
+      url: "assets/slider/s3.jpg",
+      atr: "https://www.freepik.es/foto-gratis/vista-lateral-tiro-medio-hombre-joven-que-busca-vinilos-tienda_5075567.htm#fromView=search&page=1&position=1&uuid=9a836a97-7b05-4aa2-9ad2-1aba23aab4c2",
+      title: "first",
+      description: "LOREM IPSUM"
+    }
+  ];
 }

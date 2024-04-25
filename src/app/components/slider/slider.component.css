@@ -1,0 +1,21 @@
+.slides {
+    @apply w-full h-96 relative overflow-hidden;
+}
+
+.slide {
+    @apply w-full h-full bg-cover bg-center bg-no-repeat relative;
+}
+
+.prev-button,
+.next-button {
+    @apply text-white focus:outline-none;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    @apply bg-gray-700;
+}
+
+.indicator {
+    @apply w-5 h-5 rounded-full bg-white inline-block mx-5 cursor-pointer;
+}

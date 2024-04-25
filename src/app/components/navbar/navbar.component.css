@@ -1,3 +1,5 @@
 .active{
     background: linear-gradient(0deg, #f8fadf 5%, var(--focused) 33%, var(--focused) 63%, #f8fadf 95%);
+    border: black;
+    border-style:groove;
 }

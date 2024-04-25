@@ -1,4 +1,8 @@
 .footercomp
 {
-    background: linear-gradient(0deg, var(--color5) 5%, var(--color4) 33%,  var(--color4) 66%, var(--color5) 95%);
+    background: linear-gradient(0deg, var(--bgcolor2) 5%, var(--bgcolor1) 33%,  var(--bgcolor1) 66%, var(--bgcolor1) 95%);
+}
+
+.footercomp a:hover{
+    color: var(--color2);
 }
