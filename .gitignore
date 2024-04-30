@@ -10,6 +10,9 @@
 /client/node_modules
 /client/npm-debug.log
 /client/yarn-error.log
+/server/node_modules
+/server/npm-debug.log
+/server/yarn-error.log
 
 # IDEs and editors
 /client/.idea/
@@ -40,3 +43,5 @@
 # System files
 /client/.DS_Store
 /client/Thumbs.db
+
+/server/.env
