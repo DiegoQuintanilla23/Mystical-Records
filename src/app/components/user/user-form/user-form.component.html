@@ -1,1 +1,65 @@
-<p>user-form works!</p>
+<div class="bg-white max-w-auto shadow overflow-hidden sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6">
+        <h3 class="text-lg leading-6 font-medium label">
+            User
+        </h3>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">
+            Details and informations about user.
+        </p>
+    </div>
+    <div class="border-t border-gray-200">
+        <dl>
+            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium label">
+                    Nombre Completo
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
+                        <input type="text" id="name" name="name" class="w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Nombre Actual" required>
+                        <button type="submit" class="button mt-4 sm:mt-0 text-base"><i class="fa-solid fa-floppy-disk"></i></button>
+                    </form>
+                </dd>
+            </div>
+            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium label">
+                    Dirección Completa
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
+                        <input type="text" id="address" name="address" class="w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Direccion Actual" required>
+                        <button type="submit" class="button mt-4 sm:mt-0 text-base"><i class="fa-solid fa-floppy-disk"></i></button>
+                    </form>
+                </dd>
+            </div>
+            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium label">
+                    Correo Electronico
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
+                        <input type="email" id="email" name="email" class="w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Direccion Actual" required>
+                        <button type="submit" class="button mt-4 sm:mt-0 text-base"><i class="fa-solid fa-floppy-disk"></i></button>
+                    </form>
+                </dd>
+            </div>
+            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium label">
+                    Contraseña
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <button type="submit" class="button px-0 py-0">Cambiar</button>
+                </dd>
+            </div>
+            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium label">
+                    Tarjeta
+                </dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    1234567890 
+                    <button type="submit" class="button px-0 py-0">Actualizar</button>
+                </dd>
+            </div>
+        </dl>
+    </div>
+</div>
+

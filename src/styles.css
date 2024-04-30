@@ -107,5 +107,5 @@ input{
 }
 section
 {
-    @apply mr-10 ml-10 m-10 p-10 h-full rounded bg-purple-500 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 backdrop-saturate-100 backdrop-contrast-100;
+    @apply mr-10 ml-10 m-10 p-10 h-full rounded bg-white bg-clip-padding backdrop-filter  backdrop-blur-md bg-opacity-40 backdrop-saturate-150 backdrop-contrast-100;
 }
