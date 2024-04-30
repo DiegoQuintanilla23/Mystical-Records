@@ -12,15 +12,15 @@ const getAlbums = (req = request, res = response) => {
     ).catch(
         (error) => {
             res.status(500).json({
-                msg: "Error al obtener los datos",
+                msg: error.message || "Error al obtener datos",
             });
         }
     );
 };
 
-const getAlbumsById = (req = request, res = response) => {
+const getAlbumById = (req = request, res = response) => {
     const { id } = req.params;
-    Album.findOne({id:id}).then(
+    Album.findOne({ id:id }).then(
         (result)=>{
             res.status(200).json({
                 msg: "API ALBUM GET/ID",
@@ -30,29 +30,33 @@ const getAlbumsById = (req = request, res = response) => {
     ).catch(
         (error) => {
             res.status(500).json({
-                msg: "Error al obtener los datos",
+                msg: error.message || "Error al obtener datos",
             });
         }
     );
 };
 
 const createAlbum = (req = request, res = response) => {
-    const { title, year, episodes, image, id } = req.body;
+    const { title, artist, genre, description, quantity, format, price, releaseYear, image, discount } = req.body;
 
-    if(!title|!year|!episodes|!image|!id)
-    {
+    if (!title || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image || !discount) {
         res.status(400).json({
-            msg: "Datos invalidos",
+            msg: "Datos inválidos",
         });
         return;
     }
 
-    const newAlbum = Album({
+    const newAlbum = new Album({
         title,
-        year,
-        episodes,
+        artist,
+        genre,
+        description,
+        quantity,
+        format,
+        price,
+        releaseYear,
         image,
-        id
+        discount
     });
 
     newAlbum.save().then(()=>{
@@ -62,7 +66,7 @@ const createAlbum = (req = request, res = response) => {
     }).catch(
         (error) => {
             res.status(500).json({
-                msg: "Error al insertar los datos",
+                msg: error.message || "Error al insertar datos",
             });
         }
     );
@@ -70,27 +74,37 @@ const createAlbum = (req = request, res = response) => {
 
 const updateAlbum = (req = request, res = response) => {
     const { id } = req.params;
-    const { title, year, episodes, image} = req.body;
+    const { title, artist, genre, description, quantity, format, price, releaseYear, image, discount } = req.body;
 
-    if(!title|!year|!episodes|!image|!id)
-    {
+    if (!title || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image || !discount) {
         res.status(400).json({
-            msg: "Datos invalidos",
+            msg: "Datos inválidos",
         });
         return;
     }
 
-    Album.updateOne({ id: id },{title:title, year:year, episodes:episodes, image:image}).then(()=>{
-        res.status(200).json({
-            msg: "Elemento actualizado",
-        });
-    }).catch(
-        (error) => {
-            res.status(500).json({
-                msg: "Error al actualizar los datos",
+    Album.updateOne({ id:id }, {
+        title,
+        artist,
+        genre,
+        description,
+        quantity,
+        format,
+        price,
+        releaseYear,
+        image,
+        discount
+    })
+        .then(() => {
+            res.status(200).json({
+                msg: "Elemento actualizado",
             });
-        }
-    );
+        })
+        .catch((error) => {
+            res.status(500).json({
+                msg: error.message || "Error al actualizar datos",
+            });
+        });
 };
 
 const deleteAlbum = (req = request, res = response) => {
@@ -103,7 +117,7 @@ const deleteAlbum = (req = request, res = response) => {
     }).catch(
         (error) => {
             res.status(500).json({
-                msg: "Error al eliminar los datos",
+                msg: error.message || "Error al eliminar datos",
             });
         }
     );
@@ -111,7 +125,7 @@ const deleteAlbum = (req = request, res = response) => {
 
 module.exports = {
     getAlbums,
-    getAlbumsById,
+    getAlbumById,
     createAlbum,
     updateAlbum,
     deleteAlbum

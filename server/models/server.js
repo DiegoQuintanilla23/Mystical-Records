@@ -8,7 +8,7 @@ class Server{
         this.port = process.env.PORT;
         this.connection_string=process.env.CONNECTION_STRING;
         this.usersPath = "/api/users";
-        this.tvshowsPath = "/api/tvshows";
+        this.albumsPath = "/api/albums";
 
         this.middlewares();
         this.routes();
@@ -17,7 +17,7 @@ class Server{
 
     routes(){
         this.app.use(this.usersPath, require("../routes/users"));
-        this.app.use(this.tvshowsPath, require("../routes/tvshows"));
+        this.app.use(this.albumsPath, require("../routes/albums"));
     }
 
     middlewares(){
@@ -27,7 +27,7 @@ class Server{
 
     listen(){
         this.app.listen(this.port, ()=>{
-            console.log('servidor corriendo en el puerto '+ this.port);
+            console.log('Servidor en el puerto '+ this.port);
         });
     }
 
