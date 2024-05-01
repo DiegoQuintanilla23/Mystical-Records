@@ -83,7 +83,7 @@ const updateAlbum = (req = request, res = response) => {
         return;
     }
 
-    Album.updateOne({ id:id }, {
+    Album.updateOne({ _id: id }, {
         title,
         artist,
         genre,
@@ -106,6 +106,7 @@ const updateAlbum = (req = request, res = response) => {
             });
         });
 };
+
 
 const deleteAlbum = (req = request, res = response) => {
     const { id } = req.params;

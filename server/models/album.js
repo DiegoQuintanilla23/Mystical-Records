@@ -1,11 +1,6 @@
 const mongoose = require("mongoose");
 
 const albumSchema = mongoose.Schema({
-    idalbum: {
-        type: String,
-        required: true,
-        unique: true
-    },
     idclassification: {
         type: String,
         required: true
