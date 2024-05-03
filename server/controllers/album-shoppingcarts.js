@@ -2,9 +2,9 @@ const { request, response } = require("express");
 const AlbumShoppingCart = require("../models/album-shoppingcart");
 
 const createAlbumShoppingCart = (req = request, res = response) => {
-    const { userId, albumId } = req.body;
+    const { iduser, idalbum } = req.body;
 
-    if (!userId || !albumId) {
+    if (!iduser || !idalbum) {
         res.status(400).json({
             msg: "ID de usuario y ID de álbum requeridos",
         });
@@ -12,8 +12,8 @@ const createAlbumShoppingCart = (req = request, res = response) => {
     }
 
     const newAlbumShoppingCart = new AlbumShoppingCart({
-        userId,
-        albumId
+        iduser,
+        idalbum
     });
 
     newAlbumShoppingCart.save().then(() => {
@@ -46,9 +46,9 @@ const deleteAlbumShoppingCart = (req = request, res = response) => {
 };
 
 const getAlbumShoppingCartsByUserId = (req = request, res = response) => {
-    const { userId } = req.params;
+    const { iduser } = req.params;
 
-    AlbumShoppingCart.find({ userId }).then(
+    AlbumShoppingCart.find({ iduser:iduser }).then(
         (result) => {
             res.status(200).json({
                 msg: "Carrito de compra del usuario",

@@ -2,9 +2,15 @@ const { request, response } = require("express");
 const Order = require("../models/order");
 
 const createOrder = (req = request, res = response) => {
-    const { iduser, idalbum, arrivalDate, amount } = req.body;
+    const { iduser, idalbum, amount } = req.body;
 
-    if (!iduser || !idalbum || !arrivalDate || !amount) {
+    // Definir la fecha de llegada por defecto (hoy + 7 días)
+    const defaultArrivalDate = new Date();
+    defaultArrivalDate.setDate(defaultArrivalDate.getDate() + 7);
+
+    const { arrivalDate = defaultArrivalDate } = req.body;
+
+    if (!iduser || !idalbum || !amount) {
         res.status(400).json({
             msg: "Datos incompletos para crear un pedido",
         });
@@ -42,7 +48,7 @@ const updateOrderArrivalDate = (req = request, res = response) => {
         return;
     }
 
-    Order.updateOne({ _id: id }, { arrivalDate }).then(() => {
+    Order.updateOne({ _id: id }, { arrivalDate:arrivalDate }).then(() => {
         res.status(200).json({
             msg: "Fecha de llegada del pedido actualizada",
         });
@@ -74,7 +80,7 @@ const deleteOrder = (req = request, res = response) => {
 const getOrdersByUserId = (req = request, res = response) => {
     const { iduser } = req.params;
 
-    Order.find({ iduser }).then(
+    Order.find({ iduser:iduser }).then(
         (result) => {
             res.status(200).json({
                 msg: "Pedidos del usuario",

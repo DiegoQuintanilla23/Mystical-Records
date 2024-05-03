@@ -2,9 +2,9 @@ const { request, response } = require("express");
 const AlbumWishlist = require("../models/album-wishlist");
 
 const createAlbumWishlist = (req = request, res = response) => {
-    const { userId, albumId } = req.body;
+    const { iduser, idalbum } = req.body;
 
-    if (!userId || !albumId) {
+    if (!iduser || !idalbum) {
         res.status(400).json({
             msg: "ID de usuario y ID de álbum requeridos",
         });
@@ -12,8 +12,8 @@ const createAlbumWishlist = (req = request, res = response) => {
     }
 
     const newAlbumWishlist = new AlbumWishlist({
-        userId,
-        albumId
+        iduser,
+        idalbum
     });
 
     newAlbumWishlist.save().then(() => {
@@ -46,9 +46,9 @@ const deleteAlbumWishlist = (req = request, res = response) => {
 };
 
 const getAlbumWishlistsByUserId = (req = request, res = response) => {
-    const { userId } = req.params;
+    const { iduser } = req.params;
 
-    AlbumWishlist.find({ userId }).then(
+    AlbumWishlist.find({ iduser:iduser }).then(
         (result) => {
             res.status(200).json({
                 msg: "Lista de deseos del usuario",

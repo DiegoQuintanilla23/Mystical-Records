@@ -1,20 +1,29 @@
 const { Router } = require("express");
-const { getUsers, createUser, updateUser, deleteUser } = require("../controllers/users");
+const {
+  getUsers,
+  createUser,
+  deleteUser,
+  updateUserName,
+  updateUserEmail,
+  updateUserPassword,
+  updateUserRole,
+  updateUserAddress,
+  updateUserCardInfo,
+} = require("../controllers/users");
 
 const router = Router();
 
 router.get("/", getUsers);
 router.post("/", createUser);
-router.put("/", updateUser);
 
 // Rutas para actualizar campos específicos
-router.put("/name", updateUserName);
-router.put("/email", updateUserEmail);
-router.put("/password", updateUserPassword);
-router.put("/role", updateUserRole);
-router.put("/address", updateUserAddress);
-router.put("/cardinfo", updateUserCardInfo);
+router.put("/name/:id", updateUserName);
+router.put("/email/:id", updateUserEmail);
+router.put("/password/:id", updateUserPassword);
+router.put("/role/:id", updateUserRole);
+router.put("/address/:id", updateUserAddress);
+router.put("/cardinfo/:id", updateUserCardInfo);
 
-router.delete("/", deleteUser);
+router.delete("/:id", deleteUser);
 
 module.exports = router;

@@ -19,16 +19,20 @@ const userSchema = mongoose.Schema({
         default: 'user'
     },
     address: {
-        type: String
+        type: String,
+        default: ''
     },
     cardNumber: {
-        type: String
+        type: String,
+        default: ''
     },
     cardSecurityNumber: {
-        type: String
+        type: String,
+        default: ''
     },
     cardExpirationDate: {
-        type: Date
+        type: Date,
+        default: ''
     }
 })
 module.exports = mongoose.model("User",userSchema);

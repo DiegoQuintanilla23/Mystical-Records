@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const albumSchema = mongoose.Schema({
     idclassification: {
         type: String,
-        required: true
+        required: false
     },
     name: {
         type: String,

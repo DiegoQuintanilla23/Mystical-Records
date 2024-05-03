@@ -20,7 +20,7 @@ const getAlbums = (req = request, res = response) => {
 
 const getAlbumById = (req = request, res = response) => {
     const { id } = req.params;
-    Album.findOne({ id:id }).then(
+    Album.findOne({ _id:id }).then(
         (result)=>{
             res.status(200).json({
                 msg: "API ALBUM GET/ID",
@@ -37,9 +37,9 @@ const getAlbumById = (req = request, res = response) => {
 };
 
 const createAlbum = (req = request, res = response) => {
-    const { title, artist, genre, description, quantity, format, price, releaseYear, image, discount } = req.body;
+    const { name, artist, genre, description, quantity, format, price, releaseYear, image } = req.body;
 
-    if (!title || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image || !discount) {
+    if (!name || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image ) {
         res.status(400).json({
             msg: "Datos inválidos",
         });
@@ -47,7 +47,7 @@ const createAlbum = (req = request, res = response) => {
     }
 
     const newAlbum = new Album({
-        title,
+        name,
         artist,
         genre,
         description,
@@ -55,8 +55,7 @@ const createAlbum = (req = request, res = response) => {
         format,
         price,
         releaseYear,
-        image,
-        discount
+        image
     });
 
     newAlbum.save().then(()=>{
@@ -74,9 +73,9 @@ const createAlbum = (req = request, res = response) => {
 
 const updateAlbum = (req = request, res = response) => {
     const { id } = req.params;
-    const { title, artist, genre, description, quantity, format, price, releaseYear, image, discount } = req.body;
+    const { name, artist, genre, description, quantity, format, price, releaseYear, image, discount } = req.body;
 
-    if (!title || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image || !discount) {
+    if (!name || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image || !discount) {
         res.status(400).json({
             msg: "Datos inválidos",
         });
@@ -84,16 +83,16 @@ const updateAlbum = (req = request, res = response) => {
     }
 
     Album.updateOne({ _id: id }, {
-        title,
-        artist,
-        genre,
-        description,
-        quantity,
-        format,
-        price,
-        releaseYear,
-        image,
-        discount
+        name:name,
+        artist:artist,
+        genre:genre,
+        description:description,
+        quantity:quantity,
+        format:format,
+        price:price,
+        releaseYear:releaseYear,
+        image:image,
+        discount:discount
     })
         .then(() => {
             res.status(200).json({
@@ -111,7 +110,7 @@ const updateAlbum = (req = request, res = response) => {
 const deleteAlbum = (req = request, res = response) => {
     const { id } = req.params;
 
-    Album.deleteOne({ id: id }).then(()=>{
+    Album.deleteOne({ _id: id }).then(()=>{
         res.status(200).json({
             msg: "Album eliminado",
         });

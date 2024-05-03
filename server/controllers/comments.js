@@ -51,7 +51,7 @@ const deleteComment = (req = request, res = response) => {
 const getCommentsByAlbumId = (req = request, res = response) => {
     const { idalbum } = req.params;
 
-    Comment.find({ idalbum }).then(
+    Comment.find({ idalbum:idalbum }).then(
         (result) => {
             res.status(200).json({
                 msg: "Comentarios del álbum",
@@ -70,7 +70,7 @@ const getCommentsByAlbumId = (req = request, res = response) => {
 const getCommentsByUserId = (req = request, res = response) => {
     const { iduser } = req.params;
 
-    Comment.find({ iduser }).then(
+    Comment.find({ iduser:iduser }).then(
         (result) => {
             res.status(200).json({
                 msg: "Comentarios del usuario",

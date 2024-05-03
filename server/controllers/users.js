@@ -19,9 +19,9 @@ const getUsers = (req = request, res = response) => {
 };
 
 const createUser = (req = request, res = response) => {
-    const { name, email, password, role, address, cardNumber, cardSecurityNumber, cardExpirationDate } = req.body;
+    const { name, email, password } = req.body;
 
-    if (!name || !email || !password || !role || !address || !cardNumber || !cardSecurityNumber || !cardExpirationDate) {
+    if (!name || !email || !password) {
         res.status(400).json({
             msg: "Datos incompletos para crear un usuario",
         });
@@ -31,12 +31,7 @@ const createUser = (req = request, res = response) => {
     const newUser = new User({
         name,
         email,
-        password,
-        role,
-        address,
-        cardNumber,
-        cardSecurityNumber,
-        cardExpirationDate
+        password
     });
 
     newUser.save().then(() => {
@@ -52,39 +47,6 @@ const createUser = (req = request, res = response) => {
     );
 };
 
-const updateUser = (req = request, res = response) => {
-    const { id } = req.params;
-    const { name, email, password, role, address, cardNumber, cardSecurityNumber, cardExpirationDate } = req.body;
-
-    if (!name && !email && !password && !role && !address && !cardNumber && !cardSecurityNumber && !cardExpirationDate) {
-        res.status(400).json({
-            msg: "Ningún campo para actualizar proporcionado",
-        });
-        return;
-    }
-
-    const updateFields = {};
-    if (name) updateFields.name = name;
-    if (email) updateFields.email = email;
-    if (password) updateFields.password = password;
-    if (role) updateFields.role = role;
-    if (address) updateFields.address = address;
-    if (cardNumber) updateFields.cardNumber = cardNumber;
-    if (cardSecurityNumber) updateFields.cardSecurityNumber = cardSecurityNumber;
-    if (cardExpirationDate) updateFields.cardExpirationDate = cardExpirationDate;
-
-    User.updateOne({ _id: id }, updateFields).then(() => {
-        res.status(200).json({
-            msg: "Usuario actualizado",
-        });
-    }).catch(
-        (error) => {
-            res.status(500).json({
-                msg: error.message || "Error al actualizar usuario",
-            });
-        }
-    );
-};
 
 const deleteUser = (req = request, res = response) => {
     const { id } = req.params;
@@ -113,7 +75,7 @@ const updateUserName = (req = request, res = response) => {
         return;
     }
 
-    User.updateOne({ _id: id }, { name }).then(() => {
+    User.updateOne({ _id: id }, { name:name }).then(() => {
         res.status(200).json({
             msg: "Nombre de usuario actualizado",
         });
@@ -137,7 +99,7 @@ const updateUserEmail = (req = request, res = response) => {
         return;
     }
 
-    User.updateOne({ _id: id }, { email }).then(() => {
+    User.updateOne({ _id: id }, { email:email }).then(() => {
         res.status(200).json({
             msg: "Correo electrónico de usuario actualizado",
         });
@@ -161,7 +123,7 @@ const updateUserPassword = (req = request, res = response) => {
         return;
     }
 
-    User.updateOne({ _id: id }, { password }).then(() => {
+    User.updateOne({ _id: id }, { password:password }).then(() => {
         res.status(200).json({
             msg: "Contraseña de usuario actualizada",
         });
@@ -185,7 +147,7 @@ const updateUserRole = (req = request, res = response) => {
         return;
     }
 
-    User.updateOne({ _id: id }, { role }).then(() => {
+    User.updateOne({ _id: id }, { role:role }).then(() => {
         res.status(200).json({
             msg: "Rol de usuario actualizado",
         });
@@ -209,7 +171,7 @@ const updateUserAddress = (req = request, res = response) => {
         return;
     }
 
-    User.updateOne({ _id: id }, { address }).then(() => {
+    User.updateOne({ _id: id }, { address:address }).then(() => {
         res.status(200).json({
             msg: "Dirección de usuario actualizada",
         });
@@ -233,7 +195,7 @@ const updateUserCardInfo = (req = request, res = response) => {
         return;
     }
 
-    User.updateOne({ _id: id }, { cardNumber, cardSecurityNumber, cardExpirationDate }).then(() => {
+    User.updateOne({ _id: id }, { cardNumber:cardNumber, cardSecurityNumber:cardSecurityNumber, cardExpirationDate:cardExpirationDate }).then(() => {
         res.status(200).json({
             msg: "Información de tarjeta de usuario actualizada",
         });
@@ -249,7 +211,6 @@ const updateUserCardInfo = (req = request, res = response) => {
 module.exports = {
     getUsers,
     createUser,
-    updateUser,
     deleteUser,
     updateUserName,
     updateUserEmail,

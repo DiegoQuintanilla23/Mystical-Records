@@ -9,6 +9,12 @@ class Server{
         this.connection_string=process.env.CONNECTION_STRING;
         this.usersPath = "/api/users";
         this.albumsPath = "/api/albums";
+        this.ordersPath = "/api/orders";
+        this.newslettersPath = "/api/newsletters";
+        this.commentsPath = "/api/comments";
+        this.classificationsPath = "/api/classifications";
+        this.albumShCartsPath = "/api/albumShCarts";
+        this.albumWhListsPath = "/api/albumWhLists";
 
         this.middlewares();
         this.routes();
@@ -18,6 +24,12 @@ class Server{
     routes(){
         this.app.use(this.usersPath, require("../routes/users"));
         this.app.use(this.albumsPath, require("../routes/albums"));
+        this.app.use(this.ordersPath, require("../routes/orders"));
+        this.app.use(this.newslettersPath, require("../routes/newsletters"));
+        this.app.use(this.commentsPath, require("../routes/comments"));
+        this.app.use(this.classificationsPath, require("../routes/classifications"));
+        this.app.use(this.albumShCartsPath, require("../routes/album-shoppingcarts"));
+        this.app.use(this.albumWhListsPath, require("../routes/album-wishlists"));
     }
 
     middlewares(){
