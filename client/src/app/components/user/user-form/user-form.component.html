@@ -10,7 +10,7 @@
     <div class="border-t border-gray-200">
         <dl>
             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium label">
+                <dt class="text-sm font-medium label flex items-center">
                     Nombre Completo
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -21,7 +21,7 @@
                 </dd>
             </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium label">
+                <dt class="text-sm font-medium label flex items-center">
                     Dirección Completa
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -32,7 +32,7 @@
                 </dd>
             </div>
             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium label">
+                <dt class="text-sm font-medium label flex items-center">
                     Correo Electronico
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -43,20 +43,26 @@
                 </dd>
             </div>
             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium label">
-                    Contraseña
+                <dt class="text-sm font-medium label flex items-center">
+                    Cambiar Contraseña
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    <button type="submit" class="button px-0 py-0">Cambiar</button>
+                    <input type="password" id="AcPass" name="AcPass" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Password Actual" required>
+                    <input type="password" id="NwPass" name="NwPass" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Nueva Password" required>
+                    <input type="password" id="RNwPass" name="RNwPass" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Repite Nueva Password" required>
+                    <button type="submit" class="button px-0 py-0">Actualizar</button>
                 </dd>
             </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium label">
+                <dt class="text-sm font-medium label flex items-center">
                     Tarjeta
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    1234567890 
-                    <button type="submit" class="button px-0 py-0">Actualizar</button>
+                    <input type="text" id="Num" name="Num" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Número 16 Digitos" required>
+                    <input type="password" id="NSeg" name="NSeg" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Número Seguridad" required>
+                    <input type="text" id="FVen" name="FVen" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Fecha de Vencimiento" required>
+                    <button type="submit" class="button px-0 py-0 mr-5">Actualizar</button>
+                    <button type="submit" class="button px-0 py-0 ml-5">Borrar Datos de tarjeta</button>
                 </dd>
             </div>
         </dl>
