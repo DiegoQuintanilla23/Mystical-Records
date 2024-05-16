@@ -1,1 +1,11 @@
-<p>view-class works!</p>
+<section class="w-full max-w-4xl p-6 rounded-lg shadow sm:p-6 md:p-8 mx-auto">
+    <h2 class="text-3xl font-bold text-white">Nueva Clasificación</h2>
+    <hr>
+    <p class="text-sm text-white mb-2">Añade una nueva Clasificación</p>
+    <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
+        <input type="email" id="email" name="email" class="w-full sm:w-6/12 mb-2 sm:mr-5 sm:mt-2" placeholder="Ingresa tu correo electrónico" required>
+        <button type="submit" class="button mt-4 sm:mt-0">Añadir</button>
+    </form>
+    <hr>
+    <app-clasif-table></app-clasif-table>
+</section>

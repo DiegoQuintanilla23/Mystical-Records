@@ -15,6 +15,8 @@ import { ViewProductsPage } from './pages/admin/view-products/view-products.page
 import { ViewOrdersPage } from './pages/admin/view-orders/view-orders.page';
 import { ViewClassPage } from './pages/admin/view-class/view-class.page';
 import { NewsletterPage } from './pages/admin/newsletter/newsletter.page';
+import { EditAlbumPage } from './pages/admin/edit-album/edit-album.page';
+import { ViewAlbumPage } from './pages/admin/view-album/view-album.page';
 
 export const routes: Routes = [
     {path: "home", component: HomePage },
@@ -35,7 +37,7 @@ export const routes: Routes = [
     },
     {path: "dashboard/admin", component: DashboardPage,
         children: [
-            {path: '', redirectTo:'home-adm', pathMatch:'full'},
+            {path: '', redirectTo:'add-product', pathMatch:'full'},
             {path: "add-product", component: AddProductPage},
             {path: "view-products", component: ViewProductsPage},
             {path: "view-orders", component: ViewOrdersPage},
@@ -43,5 +45,7 @@ export const routes: Routes = [
             {path: "Newsletter", component: NewsletterPage},
         ]
     },
+    {path: "admin/edit-album", component: EditAlbumPage},
+    {path: "admin/view-album", component: ViewAlbumPage},
     {path: "", redirectTo:"home", pathMatch:"full"},
 ];

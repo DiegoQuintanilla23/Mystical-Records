@@ -1,0 +1,95 @@
+<section class="w-full max-w-4xl p-6 rounded-lg shadow sm:p-6 md:p-8 mx-auto">
+    <div class="bg-white max-w-auto shadow overflow-hidden sm:rounded-lg">
+        <div class="px-4 py-5 sm:px-6">
+            <h3 class="text-lg leading-6 font-medium label">
+                Album
+            </h3>
+            <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                Editar un album.
+            </p>
+        </div>
+        <div class="border-t border-gray-200">
+            <form (ngSubmit)="submitForm()" #albumForm="ngForm">
+                <dl>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-music mr-5" aria-hidden="true"></i> Título
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <input type="text" name="title" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Título">
+                        </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-user mr-5" aria-hidden="true"></i> Artista
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <input type="text" name="artist" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Artista">
+                        </dd>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-music mr-5" aria-hidden="true"></i>Género
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <input type="text" name="genre" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Género">
+                        </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-info mr-5" aria-hidden="true"></i>Descripción
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <textarea name="description" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Descripción"></textarea>
+                        </dd>                    
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-cube mr-5" aria-hidden="true"></i>Cantidad
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <input type="number" name="quantity" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Cantidad">
+                        </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa-solid fa-compact-disc mr-5"></i> Formato
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <input type="text" name="format" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Formato">
+                        </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-usd mr-5" aria-hidden="true"></i>Precio
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <input type="number" name="price" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Precio">
+                        </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-calendar mr-5" aria-hidden="true"></i>Año
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <input type="number" name="releaseYear" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Año">
+                        </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-file mr-5" aria-hidden="true"></i>Portada
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <input type="text" name="image" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="URL de la imagen">
+                            <br>
+                            <img class="w-40 h-40 object-cover rounded" src="" alt="album-image">
+                        </dd>
+                    </div>
+                </dl>
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                    <button type="submit" class="button">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>    
+</section>
