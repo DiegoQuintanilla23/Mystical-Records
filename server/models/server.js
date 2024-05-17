@@ -15,6 +15,7 @@ class Server{
         this.classificationsPath = "/api/classifications";
         this.albumShCartsPath = "/api/albumShCarts";
         this.albumWhListsPath = "/api/albumWhLists";
+        this.authPath = "/api/auth";
 
         this.middlewares();
         this.routes();
@@ -23,6 +24,7 @@ class Server{
 
     routes(){
         this.app.use(this.usersPath, require("../routes/users"));
+        this.app.use(this.authPath, require("../routes/auth"));
         this.app.use(this.albumsPath, require("../routes/albums"));
         this.app.use(this.ordersPath, require("../routes/orders"));
         this.app.use(this.newslettersPath, require("../routes/newsletters"));

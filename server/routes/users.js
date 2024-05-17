@@ -10,20 +10,23 @@ const {
   updateUserAddress,
   updateUserCardInfo,
 } = require("../controllers/users");
+const { validateJWT } = require("../middlewares/verifyJWT");
+const { verifyAdminRole } = require("../middlewares/verifyAdminRole");
+
 
 const router = Router();
 
-router.get("/", getUsers);
-router.post("/", createUser);
+router.get("/",[validateJWT, verifyAdminRole], getUsers);//
+router.post("/", createUser); //
 
 // Rutas para actualizar campos específicos
-router.put("/name/:id", updateUserName);
-router.put("/email/:id", updateUserEmail);
-router.put("/password/:id", updateUserPassword);
-router.put("/role/:id", updateUserRole);
-router.put("/address/:id", updateUserAddress);
-router.put("/cardinfo/:id", updateUserCardInfo);
+router.put("/name/:id",[validateJWT], updateUserName); //
+router.put("/email/:id",[validateJWT], updateUserEmail); //
+router.put("/password/:id",[validateJWT], updateUserPassword);
+router.put("/role/:id",[validateJWT], updateUserRole); //
+router.put("/address/:id",[validateJWT], updateUserAddress); //
+router.put("/cardinfo/:id",[validateJWT], updateUserCardInfo); //
 
-router.delete("/:id", deleteUser);
+router.delete("/:id",[validateJWT, verifyAdminRole], deleteUser);
 
 module.exports = router;
