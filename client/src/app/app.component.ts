@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgIf } from '@angular/common';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -27,11 +28,11 @@ export class AppComponent {
   title = 'Mystical-Records';
   public CurrentRoute: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private UserService : UserService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.CurrentRoute = event.url;
-        console.log(this.CurrentRoute);
+        //console.log(this.CurrentRoute);
       }
     });
   }

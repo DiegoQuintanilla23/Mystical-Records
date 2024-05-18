@@ -1,6 +1,24 @@
 const { request, response } = require("express");
 const User = require("../models/user");
 
+const getUsersByEmPs = (req = request, res = response) => {
+    const { email, password } = req.body;
+    User.findOne( {email:email, password:password} ).then(
+        (user) => {
+            res.status(200).json({
+                msg: "Usuario",
+                user,
+            });
+        }
+    ).catch(
+        (error) => {
+            res.status(500).json({
+                msg: error.message || "Error al obtener usuario",
+            });
+        }
+    );
+};
+
 const getUsers = (req = request, res = response) => {
     User.find().then(
         (users) => {
@@ -217,5 +235,6 @@ module.exports = {
     updateUserPassword,
     updateUserRole,
     updateUserAddress,
-    updateUserCardInfo
+    updateUserCardInfo,
+    getUsersByEmPs
 };

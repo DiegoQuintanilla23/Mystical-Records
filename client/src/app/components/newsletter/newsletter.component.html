@@ -1,10 +1,13 @@
 <section>
-    <h2 class="text-3xl font-bold text-white">Newsletter</h2>
-    <hr>
-    <p class="text-sm text-white mb-2">Suscríbete a noticias de nuevos productos</p>
-    <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
-        <input type="email" id="email" name="email" class="w-full sm:w-6/12 mb-2 sm:mr-5 sm:mt-2" placeholder="Ingresa tu correo electrónico" required>
-        <button type="submit" class="button mt-4 sm:mt-0">Suscribirse</button>
-    </form>
+    <div class="bg-white p-4 rounded-lg">
+        <h2 class="text-3xl font-bold text-black">Newsletter</h2>
+        <hr style="background-color: #ccc;">
+        <p class="text-sm text-black mb-2">Suscríbete a noticias de nuevos productos</p>
+        <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
+            <input type="email" id="email" name="email" class="w-full sm:w-6/12 mb-2 sm:mr-5 sm:mt-2" placeholder="Ingresa tu correo electrónico" [(ngModel)]="SuscribeMail.email" required>
+            <button type="submit" class="button mt-4 sm:mt-0" (click)="AddNewsletter()">Suscribirse</button>
+            <span *ngIf="Suscribed" class="ml-5 text-green-500 font-bold">Suscrito!</span>
+        </form>
+    </div>
 </section>
 
