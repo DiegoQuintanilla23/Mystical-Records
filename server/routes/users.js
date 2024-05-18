@@ -25,8 +25,8 @@ router.put("/email/:id",[validateJWT], updateUserEmail); //
 router.put("/password/:id",[validateJWT], updateUserPassword);
 router.put("/role/:id",[validateJWT], updateUserRole); //
 router.put("/address/:id",[validateJWT], updateUserAddress); //
-router.put("/cardinfo/:id",[validateJWT], updateUserCardInfo); //
+router.put("/cardinfo/:id",[validateJWT], updateUserCardInfo); ///
 
-router.delete("/:id",[validateJWT, verifyAdminRole], deleteUser);
+router.delete("/:id",[validateJWT, verifyAdminRole], deleteUser); //
 
 module.exports = router;
