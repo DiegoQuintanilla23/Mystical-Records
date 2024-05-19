@@ -9,7 +9,7 @@
             <button type="button" routerLink="./register" class="icon-button"><i class="fas fa-user-plus"></i></button>
         </div>
         <div *ngIf="isAuth" class="w-auto md:block flex items-baseline space-x-4">
-            <button class="icon-button"><i class="fas fa-sign-out-alt"></i></button>
+            <button class="icon-button" (click)="Logout()"><i class="fas fa-sign-out-alt"></i></button>
             <button *ngIf="!isAdmin" class="icon-button" routerLink="/dashboard/user"><i class="fas fa-user"></i></button>
             <button *ngIf="isAdmin" class="icon-button" routerLink="dashboard/admin"><i class="fa-solid fa-user-tie"></i></button>
             <button *ngIf="!isAdmin" class="icon-button" routerLink="/dashboard/user/wishlist"><i class="fas fa-heart"></i></button>

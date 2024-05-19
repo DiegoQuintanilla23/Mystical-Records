@@ -1,7 +1,8 @@
 export interface Comment {
-    iduser: string;
-    idalbum: string;
-    author: string;
-    message: string;
-    createdAt: Date;
+    _id?:string,
+    iduser: string,
+    idalbum: string,
+    author: string,
+    message: string,
+    createdAt: Date
 }

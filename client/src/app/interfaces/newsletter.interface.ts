@@ -1,3 +1,4 @@
 export interface Newsletter {
-    email: string;
+    _id?:string,
+    email: string
 }

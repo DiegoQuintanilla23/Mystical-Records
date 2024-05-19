@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { NgIf } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { NgIf } from '@angular/common';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  constructor(private UserService : UserService){}
+  constructor( private router: Router, private UserService : UserService){}
 
   public get isAuth(): boolean{
     const token = localStorage.getItem("AuthToken");
@@ -29,6 +29,12 @@ export class HeaderComponent {
     }else{
       return false;
     }
+  }
+
+  public Logout(): void{
+    localStorage.removeItem("AuthToken");
+    this.UserService.resetActiveUser();
+    this.router.navigate(['home']);
   }
 
 }

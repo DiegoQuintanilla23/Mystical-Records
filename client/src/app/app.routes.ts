@@ -23,8 +23,8 @@ export const routes: Routes = [
     {path: "albums", component: ContentPage},
     {path: "tags", component: ContentPage},
     {path: "album", component: AlbumViewPage},
-    {path: "register", component: RegisterPage},
-    {path: "login", component: LoginPage},
+    {path: "register", component: RegisterPage},//
+    {path: "login", component: LoginPage},//
     {path: "dashboard/user", component: DashboardPage,
         children: [
             {path: '', redirectTo:'profile', pathMatch:'full'},

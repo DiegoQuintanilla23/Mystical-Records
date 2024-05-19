@@ -1,5 +1,6 @@
 export interface Album 
 {
+    _id?:string,
     idclassification:string,
     name:string,
     artist:string,

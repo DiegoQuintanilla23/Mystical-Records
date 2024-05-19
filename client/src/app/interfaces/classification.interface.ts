@@ -1,3 +1,4 @@
 export interface Classification {
-    name: string;
+    _id?:string,
+    name: string
 }

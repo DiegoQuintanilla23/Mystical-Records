@@ -3,18 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../interfaces/user.interface';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root',
 })
 export class UserService {
-
-public ActiveUser: User = {
+  public ActiveUser: User = {
     name: '',
     email: '',
     password: '',
     role: 'user',
     address: '',
-}
+  };
 
-constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
+  public resetActiveUser(): void {
+    this.ActiveUser = {
+      name: '',
+      email: '',
+      password: '',
+      role: 'user',
+      address: '',
+    };
+  }
 }
