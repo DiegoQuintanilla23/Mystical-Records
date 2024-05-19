@@ -2,11 +2,37 @@ const { request, response } = require("express");
 const Album = require("../models/album");
 
 const getAlbums = (req = request, res = response) => {
-    Album.find().then(
-        (result)=>{
+    const { latest } = req.query;
+
+    let query = Album.find();
+
+    if (latest === 'true') {
+        query = query.sort({ addedDate: -1 }).limit(20);
+    } else if (latest === 'false') {
+        // No sorting or limiting is applied, just return all albums
+        // GET /api/albums?latest=true
+    }
+
+    query.then((result) => {
+        res.status(200).json({
+            msg: "API ALBUM GET/",
+            result,
+        });
+    }).catch((error) => {
+        res.status(500).json({
+            msg: error.message || "Error al obtener datos",
+        });
+    });
+};
+
+const getAlbumsByClasif = (req = request, res = response) => {
+    const { idclassification } = req.params;
+
+    Album.find({ idclassification: idclassification }).then(
+        (result) => {
             res.status(200).json({
-                msg: "API ALBUM GET/",
-                result,
+                msg: "API ALBUM GET/IDCLASSIFICATION",
+                result, 
             });
         }
     ).catch(
@@ -16,7 +42,24 @@ const getAlbums = (req = request, res = response) => {
             });
         }
     );
-};
+}
+
+const getAlbumsByOffer = (req = request, res = response) => {
+    Album.find({ discount: { $gt: 0 } }).then(
+        (result) => {
+            res.status(200).json({
+                msg: "API ALBUM GET/Offer",
+                result, 
+            });
+        }
+    ).catch(
+        (error) => {
+            res.status(500).json({
+                msg: error.message || "Error al obtener datos",
+            });
+        }
+    );
+}
 
 const getAlbumById = (req = request, res = response) => {
     const { id } = req.params;
@@ -128,5 +171,7 @@ module.exports = {
     getAlbumById,
     createAlbum,
     updateAlbum,
-    deleteAlbum
+    deleteAlbum,
+    getAlbumsByClasif,
+    getAlbumsByOffer
 };

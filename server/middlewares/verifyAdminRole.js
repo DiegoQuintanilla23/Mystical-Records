@@ -10,7 +10,7 @@ const verifyAdminRole = (req = request, res = response, next) => {
 
     if(req.userActive.role != "admin"){
         res.status(401).json({
-            msg: "Permiso Denegado",
+            msg: "Permiso DenegadoA",
         })
         return;
     }
