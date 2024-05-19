@@ -30,34 +30,12 @@ export class LoginPage {
     ).subscribe({
       next: (response:any)=>{
         localStorage.setItem("AuthToken",response.token);
-        this.fetchUser();
+        this.UserService.fetchUser(this.emailInput,this.passwordInput);
         this.router.navigate(['home']);
       },
       error:(error: any)=>{
         //console.log(error);
       }
     })
-  }
-
-  public fetchUser(): void {
-    const token = localStorage.getItem("AuthToken") ?? "";
-    this.http.post("http://localhost:8080/api/users/oneUser",
-    {
-      email: this.emailInput,
-      password: this.passwordInput
-    },
-    {
-      headers:{
-        "Authorization": token,
-      }
-    }
-  ).subscribe({
-      next: (response: any) => {
-        this.UserService.ActiveUser = response.user;
-      },
-      error: (error: any) => {
-        console.log(error);
-      }
-    });
   }
 }

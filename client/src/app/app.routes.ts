@@ -19,10 +19,10 @@ import { EditAlbumPage } from './pages/admin/edit-album/edit-album.page';
 import { ViewAlbumPage } from './pages/admin/view-album/view-album.page';
 
 export const routes: Routes = [
-    {path: "home", component: HomePage },
+    {path: "home", component: HomePage }, 
     {path: "albums", component: ContentPage},
     {path: "tags", component: ContentPage},
-    {path: "album", component: AlbumViewPage},
+    {path: "album/:id", component: AlbumViewPage},
     {path: "register", component: RegisterPage},//
     {path: "login", component: LoginPage},//
     {path: "dashboard/user", component: DashboardPage,
