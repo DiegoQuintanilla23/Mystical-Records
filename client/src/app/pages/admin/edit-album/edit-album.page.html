@@ -13,10 +13,26 @@
                 <dl>
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-info mr-5" aria-hidden="true"></i> Clasificación
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <select name="clasif" [(ngModel)]="Album.idclassification" required 
+                                    class="crudInput p-4 w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2 bg-gray-800 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600">
+                                <option value="">
+                                    Ninguna
+                                </option>
+                                <option *ngFor="let classification of classifications" [value]="classification._id">
+                                    {{classification.name}}
+                                </option>
+                            </select>
+                        </dd>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
                             <i class="fa fa-music mr-5" aria-hidden="true"></i> Título
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <input type="text" name="title" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Título">
+                            <input type="text" name="title" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.name" placeholder="Título">
                         </dd>
                     </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -24,7 +40,7 @@
                             <i class="fa fa-user mr-5" aria-hidden="true"></i> Artista
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <input type="text" name="artist" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Artista">
+                            <input type="text" name="artist" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.artist" placeholder="Artista">
                         </dd>
                     </div>
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -32,7 +48,7 @@
                             <i class="fa fa-music mr-5" aria-hidden="true"></i>Género
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <input type="text" name="genre" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Género">
+                            <input type="text" name="genre" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.genre" placeholder="Género">
                         </dd>
                     </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -40,7 +56,7 @@
                             <i class="fa fa-info mr-5" aria-hidden="true"></i>Descripción
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <textarea name="description" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Descripción"></textarea>
+                            <textarea name="description" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.description" placeholder="Descripción"></textarea>
                         </dd>                    
                     </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -48,7 +64,7 @@
                             <i class="fa fa-cube mr-5" aria-hidden="true"></i>Cantidad
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <input type="number" name="quantity" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Cantidad">
+                            <input type="number" name="quantity" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.quantity" placeholder="Cantidad">
                         </dd>
                     </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -56,7 +72,7 @@
                             <i class="fa-solid fa-compact-disc mr-5"></i> Formato
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <input type="text" name="format" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Formato">
+                            <input type="text" name="format" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.format" placeholder="Formato">
                         </dd>
                     </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -64,7 +80,7 @@
                             <i class="fa fa-usd mr-5" aria-hidden="true"></i>Precio
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <input type="number" name="price" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Precio">
+                            <input type="number" name="price" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.price" placeholder="Precio">
                         </dd>
                     </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -72,7 +88,15 @@
                             <i class="fa fa-calendar mr-5" aria-hidden="true"></i>Año
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <input type="number" name="releaseYear" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Año">
+                            <input type="number" name="releaseYear" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.releaseYear" placeholder="Año">
+                        </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium label flex items-center">
+                            <i class="fa fa-usd mr-5" aria-hidden="true"></i>Descuento (0-0.9)
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <input type="number" name="Disc" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.discount" placeholder="Descuento">
                         </dd>
                     </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -80,9 +104,9 @@
                             <i class="fa fa-file mr-5" aria-hidden="true"></i>Portada
                         </dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            <input type="text" name="image" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="URL de la imagen">
+                            <input type="text" name="image" ngModel required class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" [(ngModel)]="Album.image" placeholder="URL de la imagen">
                             <br>
-                            <img class="w-40 h-40 object-cover rounded" src="" alt="album-image">
+                            <img class="w-40 h-40 object-cover rounded" [src]="Album.image" alt="album-image">
                         </dd>
                     </div>
                 </dl>

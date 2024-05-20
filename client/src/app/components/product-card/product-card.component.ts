@@ -41,7 +41,7 @@ export class ProductCardComponent {
   private executeFetch(): void {
     this.http.get("http://localhost:8080/api/albums/" + this.idAlbum).subscribe({
       next: (response: any) => {
-        console.log(response);
+        //console.log(response);
         this.Album = response.result;
         this.CalcDiscount();
         //console.log(this.Album);
@@ -58,7 +58,7 @@ export class ProductCardComponent {
         this.DiscPrice = this.Album.price;
       }else{
         this.DiscPrice = this.Album.discount*this.Album.price;
-        console.log(this.DiscPrice);
+        //console.log(this.DiscPrice);
       }
   }
 

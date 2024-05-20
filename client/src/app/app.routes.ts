@@ -35,17 +35,17 @@ export const routes: Routes = [
             {path: "shopping-cart", component: ShoppingCartPage},//
         ]
     },
-    {path: "dashboard/admin", component: DashboardPage,
+    {path: "dashboard/admin", component: DashboardPage,//
         children: [
-            {path: '', redirectTo:'add-product', pathMatch:'full'},
-            {path: "add-product", component: AddProductPage},
-            {path: "view-products", component: ViewProductsPage},
-            {path: "view-orders", component: ViewOrdersPage},
+            {path: '', redirectTo:'add-product', pathMatch:'full'},//
+            {path: "add-product", component: AddProductPage},//
+            {path: "view-products", component: ViewProductsPage},//
+            {path: "view-orders", component: ViewOrdersPage},//
             {path: "view-class", component: ViewClassPage},//
             {path: "Newsletter", component: NewsletterPage},//
         ]
     },
-    {path: "admin/edit-album", component: EditAlbumPage},
-    {path: "admin/view-album", component: ViewAlbumPage},
-    {path: "", redirectTo:"home", pathMatch:"full"},
+    {path: "admin/edit-album/:id", component: EditAlbumPage},//
+    {path: "admin/view-album/:id", component: ViewAlbumPage},//
+    {path: "", redirectTo:"home", pathMatch:"full"},//
 ];

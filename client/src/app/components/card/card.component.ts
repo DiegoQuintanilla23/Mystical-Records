@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Album } from '../../interfaces/album.interface';
+import { NgIf } from '@angular/common';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, NgIf],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
@@ -26,5 +28,7 @@ export class CardComponent {
     image:'',
     discount:0
   };
+
+  constructor( public UserService : UserService){}
 
 }

@@ -17,7 +17,7 @@
                     <p *ngIf="Album.discount>0" class="mt-6 text-4xl font-black text-red-500">${{DiscPrice}}</p>
                     <span class="ml-2 text-xs uppercase text-black">On stock ({{Album.quantity}})</span>
                 </div>
-                <div class="mt-8 flex flex-col md:flex-row md:items-end">
+                <div *ngIf="this.UserService.ActiveUser.role != 'admin'" class="mt-8 flex flex-col md:flex-row md:items-end">
                     <div class="ml-3 flex flex-col sm:flex-row">
                         <button type="submit" class="button mt-4 sm:mt-0" (click)="AddToShoppingCart()"><i class="fas fa-shopping-cart"></i> Añadir al
                             carrito</button>

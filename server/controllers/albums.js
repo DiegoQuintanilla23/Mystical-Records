@@ -81,8 +81,8 @@ const getAlbumById = (req = request, res = response) => {
 
 const createAlbum = (req = request, res = response) => {
     const { idclassification, name, artist, genre, description, quantity, format, price, releaseYear, image } = req.body;
-
-    if (!idclassification||!name || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image ) {
+    //console.log(req.body); // Log para ver los datos recibidos
+    if (!name || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image ) {
         res.status(400).json({
             msg: "Datos inválidos",
         });
@@ -118,8 +118,8 @@ const createAlbum = (req = request, res = response) => {
 const updateAlbum = (req = request, res = response) => {
     const { id } = req.params;
     const { idclassification, name, artist, genre, description, quantity, format, price, releaseYear, image, discount } = req.body;
-
-    if (!idclassification||!name || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image || !discount) {
+    console.log(req.body);
+    if (!name || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image ) {
         res.status(400).json({
             msg: "Datos inválidos",
         });

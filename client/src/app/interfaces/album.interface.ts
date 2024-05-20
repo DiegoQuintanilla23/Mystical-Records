@@ -10,7 +10,7 @@ export interface Album
     format:string,
     price:number,
     releaseYear:number,
-    addedDate:Date,
+    addedDate?:Date,
     image:string,
     discount:number
 }

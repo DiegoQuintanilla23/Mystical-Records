@@ -1,4 +1,4 @@
-<a [routerLink]="'/album/' + album._id" class="card">
+<a [routerLink]="UserService.ActiveUser.role === 'admin' ? '/admin/view-album/' + album._id : '/album/' + album._id" class="card">
     <img class="m-2 w-48 h-48 object-cover rounded-md" [src]="album.image" alt="Image">
     <hr class="border-b-2 border-black">
 
@@ -7,4 +7,3 @@
         <p class="mt-2 max-w-44 text-sm text-gray-600">{{album.artist}}</p>
     </div>
 </a>
-
