@@ -41,8 +41,8 @@ export const routes: Routes = [
             {path: "add-product", component: AddProductPage},
             {path: "view-products", component: ViewProductsPage},
             {path: "view-orders", component: ViewOrdersPage},
-            {path: "view-class", component: ViewClassPage},
-            {path: "Newsletter", component: NewsletterPage},
+            {path: "view-class", component: ViewClassPage},//
+            {path: "Newsletter", component: NewsletterPage},//
         ]
     },
     {path: "admin/edit-album", component: EditAlbumPage},

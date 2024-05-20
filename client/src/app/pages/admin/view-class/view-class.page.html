@@ -3,9 +3,9 @@
     <hr>
     <p class="text-sm text-white mb-2">Añade una nueva Clasificación</p>
     <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
-        <input type="email" id="email" name="email" class="w-full sm:w-6/12 mb-2 sm:mr-5 sm:mt-2" placeholder="Ingresa tu correo electrónico" required>
-        <button type="submit" class="button mt-4 sm:mt-0">Añadir</button>
+        <input type="email" id="email" name="email" class="w-full sm:w-6/12 mb-2 sm:mr-5 sm:mt-2" placeholder="Ingresa tu correo electrónico" [(ngModel)]="NwClass.name" required>
+        <button type="submit" class="button mt-4 sm:mt-0" (click)="AddClassification()">Añadir</button>
     </form>
     <hr>
-    <app-clasif-table></app-clasif-table>
+    <app-clasif-table [CFlist]="classifications"></app-clasif-table>
 </section>

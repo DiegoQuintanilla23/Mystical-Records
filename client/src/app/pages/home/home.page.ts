@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { SliderComponent } from '../../components/slider/slider.component';
 import { CardListComponent } from '../../components/card-list/card-list.component';
 import { NewsletterComponent } from '../../components/newsletter/newsletter.component';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -31,4 +33,13 @@ export class HomePage {
       description: "LOREM IPSUM"
     }
   ];
+
+  constructor( public UserService : UserService, private router: Router ){}
+
+  ngOnInit() {
+    if(this.UserService.ActiveUser.role=='admin')
+    {
+      this.router.navigate(['/dashboard/admin']);
+    }
+  }
 }

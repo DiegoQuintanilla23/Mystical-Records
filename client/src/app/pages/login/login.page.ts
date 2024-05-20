@@ -31,7 +31,11 @@ export class LoginPage {
       next: (response:any)=>{
         localStorage.setItem("AuthToken",response.token);
         this.UserService.fetchUser(this.emailInput,this.passwordInput);
-        this.router.navigate(['home']);
+        if(this.UserService.ActiveUser.role=='admin'){
+          this.router.navigate(['/dashboard/admin']);
+        }else{
+          this.router.navigate(['home']);
+        }
       },
       error:(error: any)=>{
         //console.log(error);
