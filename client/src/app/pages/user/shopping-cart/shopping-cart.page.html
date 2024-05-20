@@ -1,6 +1,3 @@
 <section class="w-full max-w-4xl p-6 rounded-lg shadow sm:p-6 md:p-8 mx-auto">
-    <app-shopping-cart-item></app-shopping-cart-item>
-    <app-shopping-cart-item></app-shopping-cart-item>
-    <app-shopping-cart-item></app-shopping-cart-item>
-    <app-shopping-cart-item></app-shopping-cart-item>
+    <app-shopping-cart-item *ngFor="let shoppingcartitem of shoppingcartlist" [item]="shoppingcartitem"></app-shopping-cart-item>
 </section>

@@ -19,20 +19,20 @@ import { EditAlbumPage } from './pages/admin/edit-album/edit-album.page';
 import { ViewAlbumPage } from './pages/admin/view-album/view-album.page';
 
 export const routes: Routes = [
-    {path: "home", component: HomePage }, 
-    {path: "albums", component: ContentPage},
-    {path: "tags", component: ContentPage},
-    {path: "album/:id", component: AlbumViewPage},
+    {path: "home", component: HomePage }, //
+    {path: "albums/:id", component: ContentPage},//
+    {path: "tags", component: ContentPage}, //--
+    {path: "album/:id", component: AlbumViewPage},//
     {path: "register", component: RegisterPage},//
     {path: "login", component: LoginPage},//
-    {path: "dashboard/user", component: DashboardPage,
+    {path: "dashboard/user", component: DashboardPage,//
         children: [
-            {path: '', redirectTo:'profile', pathMatch:'full'},
-            {path: "profile", component: ProfilePage},
-            {path: "orders", component: OrdersPage},
-            {path: "comments", component: CommentsPage},
-            {path: "wishlist", component: WishlistPage},
-            {path: "shopping-cart", component: ShoppingCartPage},
+            {path: '', redirectTo:'profile', pathMatch:'full'},//
+            {path: "profile", component: ProfilePage},//
+            {path: "orders", component: OrdersPage},//
+            {path: "comments", component: CommentsPage}, //
+            {path: "wishlist", component: WishlistPage},//
+            {path: "shopping-cart", component: ShoppingCartPage},//
         ]
     },
     {path: "dashboard/admin", component: DashboardPage,

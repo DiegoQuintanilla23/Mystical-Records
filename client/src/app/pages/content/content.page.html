@@ -1,2 +1,2 @@
-<app-card-list *ngIf="CurrentRoute !== 'tags'"></app-card-list>
+<app-card-list [query]="query" [idClasif]="idClasif" *ngIf="CurrentRoute !== 'tags'"></app-card-list>
 <app-newsletter *ngIf="CurrentRoute !== 'tags'"></app-newsletter>

@@ -4,41 +4,42 @@
             User
         </h3>
         <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            Details and informations about user.
+            Informacion de tu perfil
         </p>
+        <span *ngIf="Update" class="ml-5 text-green-500 font-bold">Actualizado!</span>
     </div>
     <div class="border-t border-gray-200">
         <dl>
             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium label flex items-center">
-                    Nombre Completo
+                    Nombre Completo: <br> {{this.UserService.ActiveUser.name}}
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                     <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
-                        <input type="text" id="name" name="name" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Nombre Actual" required>
-                        <button type="submit" class="button mt-4 sm:mt-0 text-base"><i class="fa-solid fa-floppy-disk"></i></button>
+                        <input type="text" id="name" name="name" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Nombre Actual"  [(ngModel)]="newName" required>
+                        <button type="submit" class="button mt-4 sm:mt-0 text-base" (click)="UpdateName()"><i class="fa-solid fa-floppy-disk"></i></button>
                     </form>
                 </dd>
             </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium label flex items-center">
-                    Dirección Completa
+                    Dirección Completa: <br> {{this.UserService.ActiveUser.address}}
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                     <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
-                        <input type="text" id="address" name="address" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Direccion Actual" required>
-                        <button type="submit" class="button mt-4 sm:mt-0 text-base"><i class="fa-solid fa-floppy-disk"></i></button>
+                        <input type="text" id="address" name="address" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Direccion Actual" [(ngModel)]="newAddress" required>
+                        <button type="submit" class="button mt-4 sm:mt-0 text-base" (click)="UpdateAddress()"><i class="fa-solid fa-floppy-disk"></i></button>
                     </form>
                 </dd>
             </div>
             <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium label flex items-center">
-                    Correo Electronico
+                    Correo Electronico: <br> {{this.UserService.ActiveUser.email}}
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                     <form action="#" method="post" class="flex flex-col sm:flex-row sm:items-center">
-                        <input type="email" id="email" name="email" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Direccion Actual" required>
-                        <button type="submit" class="button mt-4 sm:mt-0 text-base"><i class="fa-solid fa-floppy-disk"></i></button>
+                        <input type="email" id="email" name="email" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Direccion Actual" [(ngModel)]="newEmail" required>
+                        <button type="submit" class="button mt-4 sm:mt-0 text-base" (click)="UpdateEmail()"><i class="fa-solid fa-floppy-disk"></i></button>
                     </form>
                 </dd>
             </div>
@@ -47,22 +48,22 @@
                     Cambiar Contraseña
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    <input type="password" id="AcPass" name="AcPass" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Password Actual" required>
-                    <input type="password" id="NwPass" name="NwPass" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Nueva Password" required>
-                    <input type="password" id="RNwPass" name="RNwPass" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Repite Nueva Password" required>
-                    <button type="submit" class="button px-0 py-0">Actualizar</button>
+                    <input type="password" id="AcPass" name="AcPass" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Password Actual" [(ngModel)]="CurrentPass" required>
+                    <input type="password" id="NwPass" name="NwPass" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Nueva Password" [(ngModel)]="newPass" required>
+                    <input type="password" id="RNwPass" name="RNwPass" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Repite Nueva Password" [(ngModel)]="REnewPass" required>
+                    <button type="submit" class="button px-0 py-0" (click)="UpdatePassword()">Actualizar</button>
                 </dd>
             </div>
             <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium label flex items-center">
-                    Tarjeta
+                    Tarjeta: <br> {{this.UserService.ActiveUser.cardNumber}}
                 </dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    <input type="text" id="Num" name="Num" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Número 16 Digitos" required>
-                    <input type="password" id="NSeg" name="NSeg" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Número Seguridad" required>
-                    <input type="text" id="FVen" name="FVen" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Fecha de Vencimiento" required>
-                    <button type="submit" class="button px-0 py-0 mr-5">Actualizar</button>
-                    <button type="submit" class="button px-0 py-0 ml-5">Borrar Datos de tarjeta</button>
+                    <input type="text" id="Num" name="Num" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Número 16 Digitos" [(ngModel)]="newCardDigits" required>
+                    <input type="password" id="NSeg" name="NSeg" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Número Seguridad" [(ngModel)]="newCardSN" required>
+                    <input type="date" id="FVen" name="FVen" class="crudInput w-full sm:w-4/6 mb-2 sm:mr-5 sm:mt-2" placeholder="Fecha de Vencimiento" [(ngModel)]="formattedDate" (ngModelChange)="onDateChange($event)" required>
+                    <button type="submit" class="button px-0 py-0 mr-5" (click)="UpdateCardDetails(true)">Actualizar</button>
+                    <button type="submit" class="button px-0 py-0 ml-5" (click)="UpdateCardDetails(false)">Borrar Datos de tarjeta</button>
                 </dd>
             </div>
         </dl>

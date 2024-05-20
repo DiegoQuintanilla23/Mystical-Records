@@ -1,6 +1,6 @@
 <div class="border-b border-gray-300 mb-4">
-    <div class="border-t border-gray-300 bg-white rounded-md p-4">
-        <h1 class="text-xl font-bold mb-2">En Album comentaste:</h1>
-        <app-comment></app-comment>
+    <div *ngFor="let comment of comments" class="border-t border-gray-300 bg-white rounded-md p-4">
+        <h1 class="text-xl font-bold mb-2">En este <a class="text-blue-400" [routerLink]="'/album/' + comment.idalbum"> Album</a> comentaste:</h1>
+        <app-comment [comment]="comment"></app-comment>
     </div>
 </div>

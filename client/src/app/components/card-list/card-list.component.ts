@@ -26,6 +26,7 @@ export class CardListComponent {
     if (changes['query']) {
       this.executeFetch();
     }
+    this.Albums = [];
   }
 
   private executeFetch(): void {
@@ -51,7 +52,7 @@ export class CardListComponent {
     this.http.get("http://localhost:8080/api/albums?latest=true").subscribe(
       {
         next:(response:any)=>{
-          console.log(response);
+          //console.log(response);
           this.Albums=response.result;
         },
         error:(error:any)=>{
@@ -65,7 +66,7 @@ export class CardListComponent {
     this.http.get("http://localhost:8080/api/albums?latest=false").subscribe(
       {
         next:(response:any)=>{
-          console.log(response);
+          //console.log(response);
           this.Albums=response.result;
         },
         error:(error:any)=>{
@@ -79,7 +80,7 @@ export class CardListComponent {
     this.http.get("http://localhost:8080/api/albums/offers").subscribe(
       {
         next:(response:any)=>{
-          console.log(response);
+          //console.log(response);
           this.Albums=response.result;
         },
         error:(error:any)=>{
@@ -93,7 +94,7 @@ export class CardListComponent {
     this.http.get("http://localhost:8080/api/albums/classification/"+this.idClasif).subscribe(
       {
         next:(response:any)=>{
-          console.log(response);
+          //console.log(response);
           this.Albums=response.result;
         },
         error:(error:any)=>{

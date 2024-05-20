@@ -1,6 +1,4 @@
 
 <section class="w-full max-w-4xl p-6 rounded-lg shadow sm:p-6 md:p-8 mx-auto">
-    <app-user-order></app-user-order>
-    <app-user-order></app-user-order>
-    <app-user-order></app-user-order>
+    <app-user-order *ngFor="let orderitem of orderlist" [item]="orderitem"></app-user-order>
 </section>

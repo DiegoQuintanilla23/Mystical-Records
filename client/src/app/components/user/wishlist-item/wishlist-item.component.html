@@ -1,9 +1,9 @@
 <div class="inline-block bg-gray-100 p-4 rounded-lg mb-8 mx-4">
     <div class="flex flex-col items-center justify-between">
-        <app-card class="mb-4"></app-card>
+        <app-card class="mb-4" [album]="Album"></app-card>
         <div class="flex flex-col items-center">
-            <button class="button mb-2">Añadir al carrito</button>
-            <button class="button">Eliminar</button>
+            <button class="button mb-2" (click)="AddToShoppingCart()">Añadir al carrito</button>
+            <button class="button" (click)="DeleteItem()">Eliminar</button>
         </div>
     </div>
 </div>

@@ -13,7 +13,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ContentPage {
   public CurrentRoute : string = "";
-  constructor(private route: ActivatedRoute) {
-    this.CurrentRoute = this.route.snapshot.url.join('/');
+  public query:string="";
+  public idClasif:string="";
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.route.params.subscribe(params => {
+      this.query = params['id'];
+      if(this.query!='home'&&this.query!='all'&&this.query!='offers'){
+        this.idClasif = this.query;
+        this.query = 'classification';
+      }
+      //console.log(this.query);
+    });
   }
 }

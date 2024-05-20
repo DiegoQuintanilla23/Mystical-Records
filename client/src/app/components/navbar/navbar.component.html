@@ -1,13 +1,11 @@
 <nav class="navbar" *ngIf="!Route.startsWith('/dashboard')">
-    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Agregados Recientemente</button>
-    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Catalogo Completo</button>
-    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">En Oferta</button>
-    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Ediciones Limitadas</button>
-    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Compilaciones</button>
-    <button class="navbarButton" type="button" routerLink="/albums" routerLinkActive="active">Soundtracks</button>
-    <button class="navbarButton" type="button" routerLink="/tags" routerLinkActive="active">Géneros</button>
-    <button class="navbarButton" type="button" routerLink="/tags" routerLinkActive="active">Formatos</button>
-    <button class="navbarButton" type="button" routerLink="/tags" routerLinkActive="active">Artistas</button>
+    <button class="navbarButton" type="button" routerLink="/albums/home" routerLinkActive="active">Agregados Recientemente</button>
+    <button class="navbarButton" type="button" routerLink="/albums/all" routerLinkActive="active">Catalogo Completo</button>
+    <button class="navbarButton" type="button" routerLink="/albums/offers" routerLinkActive="active">En Oferta</button>
+    <button *ngFor="let clasif of classifications" class="navbarButton" type="button" [routerLink]="'/albums/' + clasif._id" routerLinkActive="active">{{clasif.name}}</button>
+    <!--<button class="navbarButton" type="button" routerLink="/tags" routerLinkActive="active">Géneros</button>-->
+    <!--<button class="navbarButton" type="button" routerLink="/tags" routerLinkActive="active">Formatos</button>-->
+    <!--<button class="navbarButton" type="button" routerLink="/tags" routerLinkActive="active">Artistas</button>-->
 </nav>
 <nav class="navbar" *ngIf="Route.startsWith('/dashboard/user')">
     <button class="navbarButton" type="button" routerLink="/dashboard/user/profile" routerLinkActive="active">Mi Perfil</button>
