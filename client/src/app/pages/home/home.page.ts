@@ -37,9 +37,6 @@ export class HomePage {
   constructor( public UserService : UserService, private router: Router ){}
 
   ngOnInit() {
-    if(this.UserService.ActiveUser.role=='admin')
-    {
-      this.router.navigate(['/dashboard/admin']);
-    }
+    
   }
 }

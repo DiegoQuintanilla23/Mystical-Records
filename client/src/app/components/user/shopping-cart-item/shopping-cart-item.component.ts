@@ -85,8 +85,9 @@ export class ShoppingCartItemComponent {
       })
       .subscribe({
         next: (response: any) => {
-          window.location.reload();
           this.DeleteItem();
+          window.location.reload();
+          
         },
         error: (error: any) => {
           console.error('', error);
@@ -126,8 +127,8 @@ export class ShoppingCartItemComponent {
       {
         this.DiscPrice = this.Album.price;
       }else{
-        this.DiscPrice = this.Album.discount*this.Album.price;
-        console.log(this.DiscPrice);
+        this.DiscPrice = this.Album.price - (this.Album.discount*this.Album.price);
+        //console.log(this.DiscPrice);
       }
   }
 }

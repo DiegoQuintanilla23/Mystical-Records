@@ -27,8 +27,9 @@ export class NewsletterComponent {
 
     this.http.post("http://localhost:8080/api/newsletters",this.SuscribeMail).subscribe({
       next: (response: any) => {
-        console.log(this.SuscribeMail);
+        //console.log(this.SuscribeMail);
         this.Suscribed = true;
+        this.SuscribeMail.email = "";
       },
       error: (error: any) => {
         console.log(error);

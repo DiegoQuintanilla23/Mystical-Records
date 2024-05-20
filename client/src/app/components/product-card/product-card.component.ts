@@ -57,7 +57,7 @@ export class ProductCardComponent {
       {
         this.DiscPrice = this.Album.price;
       }else{
-        this.DiscPrice = this.Album.discount*this.Album.price;
+        this.DiscPrice = this.Album.price - (this.Album.discount*this.Album.price);
         //console.log(this.DiscPrice);
       }
   }

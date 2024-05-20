@@ -118,7 +118,7 @@ const createAlbum = (req = request, res = response) => {
 const updateAlbum = (req = request, res = response) => {
     const { id } = req.params;
     const { idclassification, name, artist, genre, description, quantity, format, price, releaseYear, image, discount } = req.body;
-    console.log(req.body);
+    //console.log(req.body);
     if (!name || !artist || !genre || !description || !quantity || !format || !price || !releaseYear || !image ) {
         res.status(400).json({
             msg: "Datos inválidos",
