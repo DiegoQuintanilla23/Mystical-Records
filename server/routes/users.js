@@ -9,7 +9,8 @@ const {
   updateUserRole,
   updateUserAddress,
   updateUserCardInfo,
-  getUsersByEmPs
+  getUsersByEmPs,
+  getUsersByID
 } = require("../controllers/users");
 const { validateJWT } = require("../middlewares/verifyJWT");
 const { verifyAdminRole } = require("../middlewares/verifyAdminRole");
@@ -19,6 +20,7 @@ const router = Router();
 
 router.get("/",[validateJWT, verifyAdminRole], getUsers);//
 router.post("/oneUser",[validateJWT], getUsersByEmPs);//
+router.get("/oneUser/:id", [validateJWT, verifyAdminRole], getUsersByID);//
 router.post("/", createUser); //
 
 // Rutas para actualizar campos específicos
